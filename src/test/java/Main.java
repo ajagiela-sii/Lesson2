@@ -26,7 +26,7 @@ public class Main {
                 char[] token = new char[tokenLength];
                 Random r = new Random();
                 for (int i = 0; i < tokenLength; i++) {
-                    token[i] = (char) r.nextInt(33, 126);
+                    token[i] = (char) r.nextInt(33, 127);
                 }
                 return String.valueOf(token);
             default:
