@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
 
@@ -8,19 +6,15 @@ public class Main {
 
         System.out.println("-------Generate your token-------");
         System.out.println("Enter token length (available lengths 5,10,15) : ");
-        Scanner sc = new Scanner(System.in);
-        try {
-            int tokenLength = sc.nextInt();
-            String token = tokenGenerator(tokenLength);
-            if (token.isEmpty()) {
-                System.out.println("Wrong token length! The available lengths are: 5, 10, 15");
-            } else {
-                System.out.println("Your token is: " + token);
-            }
-            sc.close();
-        } catch (InputMismatchException exception) {
-            System.out.println("The token length should be an integer.");
+
+        int tokenLength = UserInputHandler.getIntFromUser();
+        String token = tokenGenerator(tokenLength);
+        if (token.isEmpty()) {
+            System.out.println("Wrong token length! The available lengths are: 5, 10, 15");
+        } else {
+            System.out.println("Your token is: " + token);
         }
+
     }
 
     private static String tokenGenerator(int tokenLength) {
